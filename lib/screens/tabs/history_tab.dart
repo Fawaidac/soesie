@@ -65,7 +65,7 @@ class _HistoryTabState extends State<HistoryTab> {
           // Header title
           Text(
             'Riwayat Presensi Pegawai',
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.inter(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: AppColors.onSurface,
@@ -73,7 +73,7 @@ class _HistoryTabState extends State<HistoryTab> {
           ),
           Text(
             'Rekapitulasi absensi bulanan RSD dr. Soebandi',
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.inter(
               fontSize: 12,
               color: AppColors.onSurfaceVariant,
             ),
@@ -98,7 +98,7 @@ class _HistoryTabState extends State<HistoryTab> {
                     children: [
                       Text(
                         '22',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                           color: AppColors.primary,
@@ -106,7 +106,7 @@ class _HistoryTabState extends State<HistoryTab> {
                       ),
                       Text(
                         'Hadir',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 11,
                           color: AppColors.outline,
                         ),
@@ -130,7 +130,7 @@ class _HistoryTabState extends State<HistoryTab> {
                     children: [
                       Text(
                         '1',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                           color: AppColors.error,
@@ -138,7 +138,7 @@ class _HistoryTabState extends State<HistoryTab> {
                       ),
                       Text(
                         'Terlambat',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 11,
                           color: AppColors.outline,
                         ),
@@ -162,7 +162,7 @@ class _HistoryTabState extends State<HistoryTab> {
                     children: [
                       Text(
                         '0',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                           color: AppColors.secondary,
@@ -170,7 +170,7 @@ class _HistoryTabState extends State<HistoryTab> {
                       ),
                       Text(
                         'Izin / Cuti',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 11,
                           color: AppColors.outline,
                         ),
@@ -189,8 +189,10 @@ class _HistoryTabState extends State<HistoryTab> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.surfaceContainerLow,
                   borderRadius: BorderRadius.circular(10),
@@ -208,7 +210,7 @@ class _HistoryTabState extends State<HistoryTab> {
                     const SizedBox(width: 6),
                     Text(
                       _selectedMonth,
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                         color: AppColors.onSurface,
@@ -229,14 +231,13 @@ class _HistoryTabState extends State<HistoryTab> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
                 ),
                 icon: const Icon(Icons.filter_list, size: 16),
-                label: Text(
-                  'Filter',
-                  style: GoogleFonts.poppins(fontSize: 12),
-                ),
+                label: Text('Filter', style: GoogleFonts.inter(fontSize: 12)),
               ),
             ],
           ),
@@ -301,22 +302,24 @@ class _HistoryTabState extends State<HistoryTab> {
             children: [
               Text(
                 log['date'] as String,
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
                   color: AppColors.onSurface,
                 ),
               ),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 3,
+                ),
                 decoration: BoxDecoration(
                   color: badgeBg,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
                   log['status'] as String,
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.inter(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
                     color: badgeText,
@@ -330,10 +333,7 @@ class _HistoryTabState extends State<HistoryTab> {
             alignment: Alignment.centerLeft,
             child: Text(
               log['shift'] as String,
-              style: GoogleFonts.poppins(
-                fontSize: 11,
-                color: AppColors.outline,
-              ),
+              style: GoogleFonts.inter(fontSize: 11, color: AppColors.outline),
             ),
           ),
           const SizedBox(height: 8),
@@ -344,22 +344,18 @@ class _HistoryTabState extends State<HistoryTab> {
             children: [
               Row(
                 children: [
-                  const Icon(
-                    Icons.login,
-                    size: 14,
-                    color: AppColors.primary,
-                  ),
+                  const Icon(Icons.login, size: 14, color: AppColors.primary),
                   const SizedBox(width: 4),
                   Text(
                     'Masuk: ',
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.inter(
                       fontSize: 11,
                       color: AppColors.onSurfaceVariant,
                     ),
                   ),
                   Text(
                     log['masuk'] as String,
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.inter(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                       color: AppColors.onSurface,
@@ -377,14 +373,14 @@ class _HistoryTabState extends State<HistoryTab> {
                   const SizedBox(width: 4),
                   Text(
                     'Pulang: ',
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.inter(
                       fontSize: 11,
                       color: AppColors.onSurfaceVariant,
                     ),
                   ),
                   Text(
                     log['pulang'] as String,
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.inter(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                       color: AppColors.onSurface,

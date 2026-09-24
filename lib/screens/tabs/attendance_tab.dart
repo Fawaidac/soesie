@@ -48,16 +48,14 @@ class _AttendanceTabState extends State<AttendanceTab> {
             Expanded(
               child: Text(
                 '$type Berhasil Dicuramkan! Lokasi GPS Valid.',
-                style: GoogleFonts.poppins(fontSize: 12),
+                style: GoogleFonts.inter(fontSize: 12),
               ),
             ),
           ],
         ),
         backgroundColor: AppColors.primary,
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         margin: const EdgeInsets.all(16),
       ),
     );
@@ -117,7 +115,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           const SizedBox(width: 6),
                           Text(
                             'Kehadiran',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 13,
                               fontWeight: _mode == AttendanceMode.kehadiran
                                   ? FontWeight.bold
@@ -168,7 +166,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           const SizedBox(width: 6),
                           Text(
                             'Dinas Luar',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 13,
                               fontWeight: _mode == AttendanceMode.dinasLuar
                                   ? FontWeight.bold
@@ -221,8 +219,9 @@ class _AttendanceTabState extends State<AttendanceTab> {
                             height: 42,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
-                              color: AppColors.secondaryContainer
-                                  .withValues(alpha: 0.6),
+                              color: AppColors.secondaryContainer.withValues(
+                                alpha: 0.6,
+                              ),
                             ),
                             child: const Icon(
                               Icons.my_location,
@@ -236,7 +235,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                             children: [
                               Text(
                                 'Status Geofence Radius',
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.inter(
                                   fontSize: 11,
                                   color: AppColors.onSurfaceVariant,
                                 ),
@@ -251,7 +250,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                                   const SizedBox(width: 4),
                                   Text(
                                     '0 meter dari Titik Presensi',
-                                    style: GoogleFonts.poppins(
+                                    style: GoogleFonts.inter(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
                                       color: AppColors.primary,
@@ -287,7 +286,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                             const SizedBox(width: 4),
                             Text(
                               'Valid',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.onSecondaryContainer,
@@ -299,7 +298,10 @@ class _AttendanceTabState extends State<AttendanceTab> {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  const Divider(color: AppColors.surfaceContainerHigh, height: 1),
+                  const Divider(
+                    color: AppColors.surfaceContainerHigh,
+                    height: 1,
+                  ),
                   const SizedBox(height: 12),
 
                   Row(
@@ -310,14 +312,14 @@ class _AttendanceTabState extends State<AttendanceTab> {
                         children: [
                           Text(
                             'Terverifikasi di Area',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 10,
                               color: AppColors.outline,
                             ),
                           ),
                           Text(
                             'Poli Terpadu - Gedung A',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
                               color: AppColors.onSurface,
@@ -341,7 +343,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                         icon: const Icon(Icons.refresh, size: 14),
                         label: Text(
                           'Perbarui',
-                          style: GoogleFonts.poppins(fontSize: 11),
+                          style: GoogleFonts.inter(fontSize: 11),
                         ),
                       ),
                     ],
@@ -378,7 +380,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           const SizedBox(width: 6),
                           Text(
                             'JADWAL SHIFT AKTIF',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 0.8,
@@ -390,7 +392,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                       const SizedBox(height: 4),
                       Text(
                         'Kamis, 24 Sep 2026',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: AppColors.onSurface,
@@ -416,7 +418,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                             const SizedBox(width: 4),
                             Text(
                               '07:00 - 14:00 WIB (Pagi)',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 11,
                                 color: AppColors.onSurfaceVariant,
                               ),
@@ -463,7 +465,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                       const SizedBox(height: 4),
                       Text(
                         timeString,
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                           color: AppColors.primary,
@@ -485,8 +487,9 @@ class _AttendanceTabState extends State<AttendanceTab> {
                   child: Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: AppColors.surfaceContainerLowest
-                          .withValues(alpha: 0.8),
+                      color: AppColors.surfaceContainerLowest.withValues(
+                        alpha: 0.8,
+                      ),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
                         color: AppColors.outlineVariant.withValues(alpha: 0.3),
@@ -500,7 +503,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           children: [
                             Text(
                               'Presensi Masuk',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 11,
                                 color: AppColors.outline,
                               ),
@@ -515,7 +518,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                         const SizedBox(height: 6),
                         Text(
                           '--:--',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.inter(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: AppColors.onSurface,
@@ -535,7 +538,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                             const SizedBox(width: 4),
                             Text(
                               'Belum Rekam',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 10,
                                 color: AppColors.onSurfaceVariant,
                               ),
@@ -551,8 +554,9 @@ class _AttendanceTabState extends State<AttendanceTab> {
                   child: Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: AppColors.surfaceContainerLowest
-                          .withValues(alpha: 0.8),
+                      color: AppColors.surfaceContainerLowest.withValues(
+                        alpha: 0.8,
+                      ),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
                         color: AppColors.outlineVariant.withValues(alpha: 0.3),
@@ -566,7 +570,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           children: [
                             Text(
                               'Presensi Pulang',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 11,
                                 color: AppColors.outline,
                               ),
@@ -581,7 +585,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                         const SizedBox(height: 6),
                         Text(
                           '--:--',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.inter(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: AppColors.onSurface,
@@ -601,7 +605,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                             const SizedBox(width: 4),
                             Text(
                               'Belum Selesai',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 10,
                                 color: AppColors.onSurfaceVariant,
                               ),
@@ -657,7 +661,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           children: [
                             Text(
                               'Presensi Datang',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -665,7 +669,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                             ),
                             Text(
                               'Scan biometrik & verifikasi lokasi',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 11,
                                 color: Colors.white.withValues(alpha: 0.8),
                               ),
@@ -726,7 +730,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           children: [
                             Text(
                               'Presensi Pulang',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.onSurface,
@@ -734,7 +738,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                             ),
                             Text(
                               'Pilih untuk presensi kepulangan shift',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 11,
                                 color: AppColors.onSurfaceVariant,
                               ),
@@ -761,9 +765,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
               decoration: BoxDecoration(
                 color: AppColors.secondaryContainer.withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: AppColors.secondaryContainer,
-                ),
+                border: Border.all(color: AppColors.secondaryContainer),
               ),
               child: Row(
                 children: [
@@ -779,7 +781,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                       children: [
                         Text(
                           'Keamanan Biometrik Aktif',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.inter(
                             fontSize: 11,
                             fontWeight: FontWeight.bold,
                             color: AppColors.onSurface,
@@ -787,7 +789,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                         ),
                         Text(
                           'Pastikan GPS aktif & wajah tidak tertutup masker saat verifikasi foto.',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.inter(
                             fontSize: 10,
                             color: AppColors.onSurfaceVariant,
                           ),
@@ -835,7 +837,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                             const SizedBox(width: 4),
                             Text(
                               'ST/821.2/349/2025',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 11,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.onSecondaryContainer,
@@ -866,7 +868,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                             const SizedBox(width: 4),
                             Text(
                               'Terverifikasi',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.primary,
@@ -900,7 +902,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                                   const SizedBox(width: 4),
                                   Text(
                                     'Jam Presensi',
-                                    style: GoogleFonts.poppins(
+                                    style: GoogleFonts.inter(
                                       fontSize: 10,
                                       color: AppColors.onSurfaceVariant,
                                     ),
@@ -910,7 +912,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                               const SizedBox(height: 4),
                               Text(
                                 '08:14 WIB',
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.inter(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.onSurface,
@@ -941,7 +943,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                                   const SizedBox(width: 4),
                                   Text(
                                     'Akurasi Sinyal',
-                                    style: GoogleFonts.poppins(
+                                    style: GoogleFonts.inter(
                                       fontSize: 10,
                                       color: AppColors.onSurfaceVariant,
                                     ),
@@ -951,7 +953,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                               const SizedBox(height: 4),
                               Text(
                                 '± 4.8 Meter',
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.inter(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.primary,
@@ -988,14 +990,14 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           children: [
                             Text(
                               'Lokasi Dinas Tujuan',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 10,
                                 color: AppColors.onSurfaceVariant,
                               ),
                             ),
                             Text(
                               'Dinas Kesehatan Kab. Jember / RS Rujukan',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
                                 color: AppColors.onSurface,
@@ -1040,7 +1042,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           const SizedBox(height: 8),
                           Text(
                             'Peta Geofence Lokasi Dinas Jember',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
                               color: AppColors.primary,
@@ -1077,7 +1079,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           const SizedBox(width: 6),
                           Text(
                             'Radius Sah: 100m',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
                               color: AppColors.primary,
@@ -1114,7 +1116,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                         children: [
                           Text(
                             'Foto Bukti di Lokasi Dinas',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 13,
                               fontWeight: FontWeight.bold,
                               color: AppColors.onSurface,
@@ -1122,7 +1124,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                           ),
                           Text(
                             'Selfie wajib menampilkan geotag & landmark dinas',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 11,
                               color: AppColors.onSurfaceVariant,
                             ),
@@ -1140,7 +1142,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                         ),
                         child: Text(
                           'Wajib',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.inter(
                             fontSize: 10,
                             fontWeight: FontWeight.bold,
                             color: AppColors.error,
@@ -1186,7 +1188,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                                         const SizedBox(height: 6),
                                         Text(
                                           'Foto Bukti Lapangan Berhasil Diambil',
-                                          style: GoogleFonts.poppins(
+                                          style: GoogleFonts.inter(
                                             fontSize: 12,
                                             fontWeight: FontWeight.bold,
                                             color: AppColors.primary,
@@ -1217,7 +1219,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                                 const SizedBox(height: 8),
                                 Text(
                                   'Ambil Foto / Selfie Lapangan',
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.inter(
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.primary,
@@ -1225,7 +1227,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                                 ),
                                 Text(
                                   'Kamera resolusi tinggi dengan stempel waktu',
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.inter(
                                     fontSize: 10,
                                     color: AppColors.onSurfaceVariant,
                                   ),
@@ -1264,7 +1266,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                     const SizedBox(width: 8),
                     Text(
                       'Presensi DINAS LUAR',
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),

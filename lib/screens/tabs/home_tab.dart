@@ -56,9 +56,7 @@ class _HomeTabState extends State<HomeTab> {
             decoration: BoxDecoration(
               color: AppColors.surfaceContainerLowest.withValues(alpha: 0.95),
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(
-                color: Colors.white.withValues(alpha: 0.6),
-              ),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.6)),
               boxShadow: [
                 BoxShadow(
                   color: AppColors.primary.withValues(alpha: 0.12),
@@ -122,7 +120,7 @@ class _HomeTabState extends State<HomeTab> {
                         children: [
                           Text(
                             'SELAMAT PAGI,',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 0.8,
@@ -151,7 +149,7 @@ class _HomeTabState extends State<HomeTab> {
                                 const SizedBox(width: 4),
                                 Text(
                                   'Online',
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.inter(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w600,
                                     color: AppColors.onSecondaryContainer,
@@ -165,7 +163,7 @@ class _HomeTabState extends State<HomeTab> {
                       const SizedBox(height: 2),
                       Text(
                         'Achmad Fawaid',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: AppColors.onSurface,
@@ -173,7 +171,7 @@ class _HomeTabState extends State<HomeTab> {
                       ),
                       Text(
                         'NIP. 350921250430001',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 12,
                           color: AppColors.onSurfaceVariant,
                           fontFeatures: const [FontFeature.tabularFigures()],
@@ -181,7 +179,7 @@ class _HomeTabState extends State<HomeTab> {
                       ),
                       Text(
                         'Instalasi Pengelola Data Elektronik',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 11,
                           color: AppColors.outline,
                         ),
@@ -191,7 +189,7 @@ class _HomeTabState extends State<HomeTab> {
                         children: [
                           Text(
                             'Shift: ',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 11,
                               color: AppColors.onSurfaceVariant,
                             ),
@@ -207,7 +205,7 @@ class _HomeTabState extends State<HomeTab> {
                             ),
                             child: Text(
                               'Manajerial',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -261,7 +259,7 @@ class _HomeTabState extends State<HomeTab> {
                         const SizedBox(width: 8),
                         Text(
                           'Kamis, 24 September 2026',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.inter(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                             color: AppColors.onSurfaceVariant,
@@ -288,7 +286,7 @@ class _HomeTabState extends State<HomeTab> {
                           const SizedBox(width: 4),
                           Text(
                             'Zona RSD Soebandi (Valid)',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
                               color: AppColors.primary,
@@ -315,7 +313,7 @@ class _HomeTabState extends State<HomeTab> {
                         children: [
                           Text(
                             'Waktu Server (WIB)',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 11,
                               color: AppColors.outline,
                             ),
@@ -326,19 +324,19 @@ class _HomeTabState extends State<HomeTab> {
                             children: [
                               Text(
                                 clockTimeString,
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.inter(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.primary,
                                   fontFeatures: const [
-                                    FontFeature.tabularFigures()
+                                    FontFeature.tabularFigures(),
                                   ],
                                 ),
                               ),
                               const SizedBox(width: 4),
                               Text(
                                 'WIB',
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.inter(
                                   fontSize: 11,
                                   color: AppColors.outline,
                                 ),
@@ -347,7 +345,7 @@ class _HomeTabState extends State<HomeTab> {
                           ),
                           Text(
                             'Batas Masuk: 08:00 WIB',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 11,
                               color: AppColors.onSurfaceVariant,
                             ),
@@ -365,8 +363,9 @@ class _HomeTabState extends State<HomeTab> {
                           color: AppColors.surfaceContainerLow,
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: AppColors.outlineVariant
-                                .withValues(alpha: 0.2),
+                            color: AppColors.outlineVariant.withValues(
+                              alpha: 0.2,
+                            ),
                           ),
                         ),
                         child: Column(
@@ -376,14 +375,14 @@ class _HomeTabState extends State<HomeTab> {
                               children: [
                                 Text(
                                   'Presensi Masuk',
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.inter(
                                     fontSize: 10,
                                     color: AppColors.outline,
                                   ),
                                 ),
                                 Text(
                                   '07:31',
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.inter(
                                     fontSize: 10,
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.tertiaryContainer,
@@ -408,14 +407,14 @@ class _HomeTabState extends State<HomeTab> {
                               children: [
                                 Text(
                                   'Presensi Pulang',
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.inter(
                                     fontSize: 10,
                                     color: AppColors.outline,
                                   ),
                                 ),
                                 Text(
                                   'Belum',
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.inter(
                                     fontSize: 10,
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.onSurfaceVariant,
@@ -457,7 +456,7 @@ class _HomeTabState extends State<HomeTab> {
                         const SizedBox(width: 8),
                         Text(
                           'Presensi Sekarang',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.inter(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
                           ),
@@ -483,7 +482,7 @@ class _HomeTabState extends State<HomeTab> {
                         const SizedBox(width: 4),
                         Text(
                           'Radius Geofence: 18m / 100m',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.inter(
                             fontSize: 10,
                             color: AppColors.outline,
                           ),
@@ -496,7 +495,7 @@ class _HomeTabState extends State<HomeTab> {
                           SnackBar(
                             content: Text(
                               'Kalibrasi lokasi GPS berhasil dilakukan.',
-                              style: GoogleFonts.poppins(fontSize: 12),
+                              style: GoogleFonts.inter(fontSize: 12),
                             ),
                             backgroundColor: AppColors.primary,
                             duration: const Duration(seconds: 2),
@@ -513,7 +512,7 @@ class _HomeTabState extends State<HomeTab> {
                           const SizedBox(width: 2),
                           Text(
                             'Kalibrasi',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
                               color: AppColors.primary,
@@ -536,7 +535,7 @@ class _HomeTabState extends State<HomeTab> {
             children: [
               Text(
                 'Menu Beranda',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: AppColors.onSurface,
@@ -544,7 +543,7 @@ class _HomeTabState extends State<HomeTab> {
               ),
               Text(
                 'Layanan Staff',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
                   color: AppColors.primary,
@@ -611,7 +610,7 @@ class _HomeTabState extends State<HomeTab> {
             children: [
               Text(
                 'Aktivitas Terkini',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: AppColors.onSurface,
@@ -621,7 +620,7 @@ class _HomeTabState extends State<HomeTab> {
                 onTap: widget.onNavigateToHistory,
                 child: Text(
                   'Semua Catatan',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                     color: AppColors.primary,
@@ -655,8 +654,9 @@ class _HomeTabState extends State<HomeTab> {
                           height: 40,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: AppColors.secondaryContainer
-                                .withValues(alpha: 0.4),
+                            color: AppColors.secondaryContainer.withValues(
+                              alpha: 0.4,
+                            ),
                           ),
                           child: const Icon(
                             Icons.login,
@@ -670,7 +670,7 @@ class _HomeTabState extends State<HomeTab> {
                           children: [
                             Text(
                               'Presensi Masuk (Tepat Waktu)',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
                                 color: AppColors.onSurface,
@@ -678,7 +678,7 @@ class _HomeTabState extends State<HomeTab> {
                             ),
                             Text(
                               'Hari ini • 07:31:42 WIB',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 11,
                                 color: AppColors.outline,
                               ),
@@ -698,7 +698,7 @@ class _HomeTabState extends State<HomeTab> {
                       ),
                       child: Text(
                         'Sukses',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
                           color: AppColors.onSecondaryContainer,
@@ -741,7 +741,7 @@ class _HomeTabState extends State<HomeTab> {
                           children: [
                             Text(
                               'Presensi Pulang',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
                                 color: AppColors.onSurface,
@@ -749,7 +749,7 @@ class _HomeTabState extends State<HomeTab> {
                             ),
                             Text(
                               'Kemarin, 23 Sep • 16:04:11 WIB',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 11,
                                 color: AppColors.outline,
                               ),
@@ -769,7 +769,7 @@ class _HomeTabState extends State<HomeTab> {
                       ),
                       child: Text(
                         'Selesai',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
                           color: AppColors.onSurfaceVariant,
@@ -838,7 +838,7 @@ class _HomeTabState extends State<HomeTab> {
                   children: [
                     Text(
                       title,
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
                         color: AppColors.onSurface,
@@ -848,7 +848,7 @@ class _HomeTabState extends State<HomeTab> {
                       subtitle,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         fontSize: 10,
                         color: AppColors.onSurfaceVariant,
                       ),

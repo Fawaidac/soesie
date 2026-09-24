@@ -11,19 +11,17 @@ class ProfileTab extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Text(
           'Konfirmasi Keluar',
-          style: GoogleFonts.poppins(
+          style: GoogleFonts.inter(
             fontWeight: FontWeight.bold,
             color: AppColors.onSurface,
           ),
         ),
         content: Text(
           'Apakah Anda yakin ingin keluar dari akun SOESIE Mobile?',
-          style: GoogleFonts.poppins(
+          style: GoogleFonts.inter(
             fontSize: 13,
             color: AppColors.onSurfaceVariant,
           ),
@@ -33,7 +31,7 @@ class ProfileTab extends StatelessWidget {
             onPressed: () => Navigator.of(context).pop(),
             child: Text(
               'Batal',
-              style: GoogleFonts.poppins(
+              style: GoogleFonts.inter(
                 color: AppColors.outline,
                 fontWeight: FontWeight.w600,
               ),
@@ -43,9 +41,7 @@ class ProfileTab extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => const LoginScreen(),
-                ),
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
               );
             },
             style: ElevatedButton.styleFrom(
@@ -57,9 +53,7 @@ class ProfileTab extends StatelessWidget {
             ),
             child: Text(
               'Keluar',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.bold,
-              ),
+              style: GoogleFonts.inter(fontWeight: FontWeight.bold),
             ),
           ),
         ],
@@ -141,7 +135,7 @@ class ProfileTab extends StatelessWidget {
                             const SizedBox(width: 6),
                             Text(
                               'Presensi Terhubung (GPS Valid)',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 10,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.white,
@@ -251,7 +245,7 @@ class ProfileTab extends StatelessWidget {
                                   ),
                                   child: Text(
                                     'Shift: Manajerial',
-                                    style: GoogleFonts.poppins(
+                                    style: GoogleFonts.inter(
                                       fontSize: 10,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
@@ -281,11 +275,10 @@ class ProfileTab extends StatelessWidget {
                                       const SizedBox(width: 4),
                                       Text(
                                         'Aktif',
-                                        style: GoogleFonts.poppins(
+                                        style: GoogleFonts.inter(
                                           fontSize: 10,
                                           fontWeight: FontWeight.bold,
-                                          color:
-                                              AppColors.onSecondaryContainer,
+                                          color: AppColors.onSecondaryContainer,
                                         ),
                                       ),
                                     ],
@@ -304,7 +297,7 @@ class ProfileTab extends StatelessWidget {
                           children: [
                             Text(
                               'Achmad Fawaid, S.Kom.',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.onSurface,
@@ -312,7 +305,7 @@ class ProfileTab extends StatelessWidget {
                             ),
                             Text(
                               'Instalasi Pengelola Data Elektronik (IPDE)',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.onSurfaceVariant,
@@ -329,11 +322,11 @@ class ProfileTab extends StatelessWidget {
                                 const SizedBox(width: 4),
                                 Text(
                                   'NIP. 350921250430001',
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.inter(
                                     fontSize: 12,
                                     color: AppColors.outline,
                                     fontFeatures: const [
-                                      FontFeature.tabularFigures()
+                                      FontFeature.tabularFigures(),
                                     ],
                                   ),
                                 ),
@@ -350,14 +343,23 @@ class ProfileTab extends StatelessWidget {
                             // Quick Metrics Bar
                             Row(
                               children: [
-                                _buildMetricSnippet('100%', 'Kehadiran',
-                                    AppColors.primary),
+                                _buildMetricSnippet(
+                                  '100%',
+                                  'Kehadiran',
+                                  AppColors.primary,
+                                ),
                                 const SizedBox(width: 8),
-                                _buildMetricSnippet('08:00', 'Jam Masuk',
-                                    AppColors.secondary),
+                                _buildMetricSnippet(
+                                  '08:00',
+                                  'Jam Masuk',
+                                  AppColors.secondary,
+                                ),
                                 const SizedBox(width: 8),
-                                _buildMetricSnippet('RS Dera',
-                                    'Radius Geofence', AppColors.tertiaryContainer),
+                                _buildMetricSnippet(
+                                  'RS Dera',
+                                  'Radius Geofence',
+                                  AppColors.tertiaryContainer,
+                                ),
                               ],
                             ),
                           ],
@@ -378,7 +380,7 @@ class ProfileTab extends StatelessWidget {
             children: [
               Text(
                 'MENU PRESENSI & AKUN',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.8,
@@ -387,7 +389,7 @@ class ProfileTab extends StatelessWidget {
               ),
               Text(
                 'SOESIE Pass',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
                   color: AppColors.primary,
@@ -489,18 +491,18 @@ class ProfileTab extends StatelessWidget {
               onPressed: () => _handleLogout(context),
               style: OutlinedButton.styleFrom(
                 foregroundColor: AppColors.error,
-                side: BorderSide(
-                  color: AppColors.error.withValues(alpha: 0.4),
-                ),
+                side: BorderSide(color: AppColors.error.withValues(alpha: 0.4)),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
-                backgroundColor: AppColors.errorContainer.withValues(alpha: 0.2),
+                backgroundColor: AppColors.errorContainer.withValues(
+                  alpha: 0.2,
+                ),
               ),
               icon: const Icon(Icons.logout, size: 20),
               label: Text(
                 'Keluar Akun',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
@@ -524,7 +526,7 @@ class ProfileTab extends StatelessWidget {
           children: [
             Text(
               value,
-              style: GoogleFonts.poppins(
+              style: GoogleFonts.inter(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
                 color: color,
@@ -532,10 +534,7 @@ class ProfileTab extends StatelessWidget {
             ),
             Text(
               label,
-              style: GoogleFonts.poppins(
-                fontSize: 10,
-                color: AppColors.outline,
-              ),
+              style: GoogleFonts.inter(fontSize: 10, color: AppColors.outline),
             ),
           ],
         ),
@@ -559,17 +558,14 @@ class ProfileTab extends StatelessWidget {
       leading: Container(
         width: 40,
         height: 40,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: iconBg,
-        ),
+        decoration: BoxDecoration(shape: BoxShape.circle, color: iconBg),
         child: Icon(icon, size: 20, color: iconColor),
       ),
       title: Row(
         children: [
           Text(
             title,
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.inter(
               fontSize: 13,
               fontWeight: FontWeight.w600,
               color: AppColors.onSurface,
@@ -585,7 +581,7 @@ class ProfileTab extends StatelessWidget {
               ),
               child: Text(
                 badgeText,
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: 9,
                   fontWeight: FontWeight.bold,
                   color: AppColors.onPrimaryFixed,
@@ -597,10 +593,7 @@ class ProfileTab extends StatelessWidget {
       ),
       subtitle: Text(
         subtitle,
-        style: GoogleFonts.poppins(
-          fontSize: 11,
-          color: AppColors.outline,
-        ),
+        style: GoogleFonts.inter(fontSize: 11, color: AppColors.outline),
       ),
       trailing: const Icon(
         Icons.chevron_right,

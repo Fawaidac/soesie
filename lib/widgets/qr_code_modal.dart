@@ -45,7 +45,7 @@ class QrCodeModal extends StatelessWidget {
                 children: [
                   Text(
                     'Kode QR Presensi Staf',
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.inter(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: AppColors.onSurface,
@@ -53,7 +53,7 @@ class QrCodeModal extends StatelessWidget {
                   ),
                   Text(
                     'SOESIE Pass • RSD dr. Soebandi',
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.inter(
                       fontSize: 12,
                       color: AppColors.onSurfaceVariant,
                     ),
@@ -102,13 +102,14 @@ class QrCodeModal extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 6,
-                          crossAxisSpacing: 6,
-                          mainAxisSpacing: 6,
-                        ),
+                              crossAxisCount: 6,
+                              crossAxisSpacing: 6,
+                              mainAxisSpacing: 6,
+                            ),
                         itemCount: 36,
                         itemBuilder: (context, index) {
-                          final isCorner = index == 0 ||
+                          final isCorner =
+                              index == 0 ||
                               index == 5 ||
                               index == 30 ||
                               index % 7 == 0 ||
@@ -118,10 +119,10 @@ class QrCodeModal extends StatelessWidget {
                               color: isCorner
                                   ? AppColors.primary
                                   : (index % 3 == 0
-                                      ? AppColors.secondary
-                                      : AppColors.primaryContainer.withValues(
-                                          alpha: 0.3,
-                                        )),
+                                        ? AppColors.secondary
+                                        : AppColors.primaryContainer.withValues(
+                                            alpha: 0.3,
+                                          )),
                               borderRadius: BorderRadius.circular(3),
                             ),
                           );
@@ -134,7 +135,10 @@ class QrCodeModal extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.white,
-                          border: Border.all(color: AppColors.primary, width: 2),
+                          border: Border.all(
+                            color: AppColors.primary,
+                            width: 2,
+                          ),
                         ),
                         child: ClipOval(
                           child: Image.asset(
@@ -151,7 +155,7 @@ class QrCodeModal extends StatelessWidget {
 
                 Text(
                   'Achmad Fawaid, S.Kom.',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: AppColors.onSurface,
@@ -159,7 +163,7 @@ class QrCodeModal extends StatelessWidget {
                 ),
                 Text(
                   'NIP. 350921250430001',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     color: AppColors.onSurfaceVariant,
                     fontFeatures: const [FontFeature.tabularFigures()],
@@ -183,7 +187,7 @@ class QrCodeModal extends StatelessWidget {
               const SizedBox(width: 6),
               Text(
                 'Kode QR diperbarui otomatis setiap 30 detik',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: 11,
                   color: AppColors.onSurfaceVariant,
                 ),
