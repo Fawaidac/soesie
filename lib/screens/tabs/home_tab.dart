@@ -566,50 +566,43 @@ class _HomeTabState extends State<HomeTab> {
 
           const SizedBox(height: 10),
 
-          // Grid 2x2 with Compact Horizontal Layout matching newberanda.html
-          GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 2.3,
+          // 3-Column Menu Row (Tukar Shift removed)
+          Row(
             children: [
-              _buildCompactMenuItem(
-                context,
-                icon: Icons.calendar_month,
-                title: 'Jadwal Saya',
-                subtitle: 'Absensi & shift',
-                bgColor: AppColors.secondaryContainer.withValues(alpha: 0.5),
-                iconColor: AppColors.secondary,
-                onTap: () {},
+              Expanded(
+                child: _buildCompactMenuItem(
+                  context,
+                  icon: Icons.calendar_month,
+                  title: 'Jadwal Saya',
+                  subtitle: 'Absensi & shift',
+                  bgColor: AppColors.secondaryContainer.withValues(alpha: 0.5),
+                  iconColor: AppColors.secondary,
+                  onTap: () {},
+                ),
               ),
-              _buildCompactMenuItem(
-                context,
-                icon: Icons.history,
-                title: 'Riwayat',
-                subtitle: 'Rekap bulanan',
-                bgColor: AppColors.primaryFixed.withValues(alpha: 0.4),
-                iconColor: AppColors.primary,
-                onTap: widget.onNavigateToHistory,
+              const SizedBox(width: 8),
+              Expanded(
+                child: _buildCompactMenuItem(
+                  context,
+                  icon: Icons.history,
+                  title: 'Riwayat',
+                  subtitle: 'Rekap bulanan',
+                  bgColor: AppColors.primaryFixed.withValues(alpha: 0.4),
+                  iconColor: AppColors.primary,
+                  onTap: widget.onNavigateToHistory,
+                ),
               ),
-              _buildCompactMenuItem(
-                context,
-                icon: Icons.edit_calendar,
-                title: 'Izin & Cuti',
-                subtitle: 'Permohonan dinas',
-                bgColor: AppColors.secondaryFixed.withValues(alpha: 0.5),
-                iconColor: AppColors.secondary,
-                onTap: () {},
-              ),
-              _buildCompactMenuItem(
-                context,
-                icon: Icons.swap_horiz,
-                title: 'Tukar Shift',
-                subtitle: 'Ganti dinas jaga',
-                bgColor: AppColors.surfaceContainerHigh,
-                iconColor: AppColors.onSurfaceVariant,
-                onTap: () {},
+              const SizedBox(width: 8),
+              Expanded(
+                child: _buildCompactMenuItem(
+                  context,
+                  icon: Icons.edit_calendar,
+                  title: 'Izin & Cuti',
+                  subtitle: 'Dinas & izin',
+                  bgColor: AppColors.secondaryFixed.withValues(alpha: 0.5),
+                  iconColor: AppColors.secondary,
+                  onTap: () {},
+                ),
               ),
             ],
           ),
@@ -997,50 +990,40 @@ class _HomeTabState extends State<HomeTab> {
           onTap: onTap,
           borderRadius: BorderRadius.circular(12),
           child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+            child: Column(
               children: [
                 Container(
-                  width: 38,
-                  height: 38,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(12),
                     color: bgColor,
                   ),
-                  child: Icon(icon, size: 20, color: iconColor),
+                  child: Icon(icon, size: 22, color: iconColor),
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.inter(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.onSurface,
-                        ),
-                      ),
-                      Text(
-                        subtitle,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.inter(
-                          fontSize: 10,
-                          color: AppColors.onSurfaceVariant,
-                        ),
-                      ),
-                    ],
+                const SizedBox(height: 8),
+                Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.onSurface,
                   ),
                 ),
-                const Icon(
-                  Icons.chevron_right,
-                  size: 18,
-                  color: AppColors.outlineVariant,
+                const SizedBox(height: 2),
+                Text(
+                  subtitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    fontSize: 10,
+                    color: AppColors.onSurfaceVariant,
+                  ),
                 ),
               ],
             ),
