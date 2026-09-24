@@ -162,8 +162,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
           elevation: 0,
           destinations: [
             NavigationDestination(
-              icon: const Icon(Icons.home_outlined),
-              selectedIcon: const Icon(Icons.home, color: AppColors.primary),
+              icon: const Icon(Icons.dashboard_outlined),
+              selectedIcon: const Icon(
+                Icons.dashboard,
+                color: AppColors.primary,
+              ),
               label: 'Beranda',
             ),
             NavigationDestination(

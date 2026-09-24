@@ -20,6 +20,17 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
   late Timer _clockTimer;
   DateTime _now = DateTime.now();
+  int _selectedDayIndex = 3; // Index 3 = Kamis 24
+
+  final List<Map<String, String>> _weekDays = [
+    {'day': 'Sen', 'date': '21'},
+    {'day': 'Sel', 'date': '22'},
+    {'day': 'Rab', 'date': '23'},
+    {'day': 'Kam', 'date': '24'},
+    {'day': 'Jum', 'date': '25'},
+    {'day': 'Sab', 'date': '26'},
+    {'day': 'Min', 'date': '27'},
+  ];
 
   @override
   void initState() {
@@ -56,7 +67,9 @@ class _HomeTabState extends State<HomeTab> {
             decoration: BoxDecoration(
               color: AppColors.surfaceContainerLowest.withValues(alpha: 0.95),
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.6)),
+              border: Border.all(
+                color: Colors.white.withValues(alpha: 0.6),
+              ),
               boxShadow: [
                 BoxShadow(
                   color: AppColors.primary.withValues(alpha: 0.12),
@@ -188,7 +201,7 @@ class _HomeTabState extends State<HomeTab> {
                       Row(
                         children: [
                           Text(
-                            'Shift: ',
+                            'Kelompok Shift: ',
                             style: GoogleFonts.inter(
                               fontSize: 11,
                               color: AppColors.onSurfaceVariant,
@@ -329,7 +342,7 @@ class _HomeTabState extends State<HomeTab> {
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.primary,
                                   fontFeatures: const [
-                                    FontFeature.tabularFigures(),
+                                    FontFeature.tabularFigures()
                                   ],
                                 ),
                               ),
@@ -363,9 +376,8 @@ class _HomeTabState extends State<HomeTab> {
                           color: AppColors.surfaceContainerLow,
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: AppColors.outlineVariant.withValues(
-                              alpha: 0.2,
-                            ),
+                            color: AppColors.outlineVariant
+                                .withValues(alpha: 0.2),
                           ),
                         ),
                         child: Column(
@@ -529,7 +541,7 @@ class _HomeTabState extends State<HomeTab> {
 
           const SizedBox(height: 20),
 
-          // 3. Grid Menu Beranda Title
+          // 3. Grid Menu Beranda Title (Updated compact layout per newberanda.html)
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -552,49 +564,49 @@ class _HomeTabState extends State<HomeTab> {
             ],
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
 
-          // Grid 2x2
+          // Grid 2x2 with Compact Horizontal Layout matching newberanda.html
           GridView.count(
             crossAxisCount: 2,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            childAspectRatio: 1.35,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 2.3,
             children: [
-              _buildMenuItem(
+              _buildCompactMenuItem(
                 context,
                 icon: Icons.calendar_month,
                 title: 'Jadwal Saya',
-                subtitle: 'Lihat jadwal absensi & shift',
+                subtitle: 'Absensi & shift',
                 bgColor: AppColors.secondaryContainer.withValues(alpha: 0.5),
                 iconColor: AppColors.secondary,
                 onTap: () {},
               ),
-              _buildMenuItem(
+              _buildCompactMenuItem(
                 context,
                 icon: Icons.history,
-                title: 'Riwayat Presensi',
-                subtitle: 'Rekap kehadiran bulanan',
+                title: 'Riwayat',
+                subtitle: 'Rekap bulanan',
                 bgColor: AppColors.primaryFixed.withValues(alpha: 0.4),
                 iconColor: AppColors.primary,
                 onTap: widget.onNavigateToHistory,
               ),
-              _buildMenuItem(
+              _buildCompactMenuItem(
                 context,
                 icon: Icons.edit_calendar,
-                title: 'Pengajuan Cuti',
-                subtitle: 'Permohonan izin & dinas',
+                title: 'Izin & Cuti',
+                subtitle: 'Permohonan dinas',
                 bgColor: AppColors.secondaryFixed.withValues(alpha: 0.5),
                 iconColor: AppColors.secondary,
                 onTap: () {},
               ),
-              _buildMenuItem(
+              _buildCompactMenuItem(
                 context,
                 icon: Icons.swap_horiz,
                 title: 'Tukar Shift',
-                subtitle: 'Koordinasi pergantian dinas',
+                subtitle: 'Ganti dinas jaga',
                 bgColor: AppColors.surfaceContainerHigh,
                 iconColor: AppColors.onSurfaceVariant,
                 onTap: () {},
@@ -604,12 +616,12 @@ class _HomeTabState extends State<HomeTab> {
 
           const SizedBox(height: 24),
 
-          // 4. Aktivitas Terkini Section
+          // 4. Jadwal & Aktivitas Section (Matching newberanda.html)
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Aktivitas Terkini',
+                'Jadwal & Aktivitas',
                 style: GoogleFonts.inter(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -619,7 +631,7 @@ class _HomeTabState extends State<HomeTab> {
               GestureDetector(
                 onTap: widget.onNavigateToHistory,
                 child: Text(
-                  'Semua Catatan',
+                  'Lihat Kalender',
                   style: GoogleFonts.inter(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
@@ -632,6 +644,7 @@ class _HomeTabState extends State<HomeTab> {
 
           const SizedBox(height: 12),
 
+          // Calendar Card Container
           Container(
             decoration: BoxDecoration(
               color: AppColors.surfaceContainerLowest,
@@ -639,140 +652,315 @@ class _HomeTabState extends State<HomeTab> {
               border: Border.all(
                 color: AppColors.outlineVariant.withValues(alpha: 0.3),
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.primary.withValues(alpha: 0.08),
+                  blurRadius: 16,
+                  offset: const Offset(0, 6),
+                ),
+              ],
             ),
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-                // Log Entry 1
+                // Month Header with Arrows
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.chevron_left,
+                        color: AppColors.onSurfaceVariant,
+                      ),
+                      constraints: const BoxConstraints(),
+                      padding: EdgeInsets.zero,
+                    ),
+                    Text(
+                      'September 2026',
+                      style: GoogleFonts.inter(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.onSurface,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.chevron_right,
+                        color: AppColors.onSurfaceVariant,
+                      ),
+                      constraints: const BoxConstraints(),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 12),
+
+                // 7-Day Horizontal Week Strip
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(_weekDays.length, (index) {
+                    final item = _weekDays[index];
+                    final isSelected = index == _selectedDayIndex;
+                    return Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _selectedDayIndex = index;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          margin: const EdgeInsets.symmetric(horizontal: 2),
+                          padding: const EdgeInsets.symmetric(vertical: 8),
                           decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.secondaryContainer.withValues(
-                              alpha: 0.4,
-                            ),
+                            color: isSelected
+                                ? AppColors.primary
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: isSelected
+                                ? [
+                                    BoxShadow(
+                                      color: AppColors.primary
+                                          .withValues(alpha: 0.3),
+                                      blurRadius: 8,
+                                      offset: const Offset(0, 4),
+                                    ),
+                                  ]
+                                : null,
                           ),
-                          child: const Icon(
-                            Icons.login,
-                            size: 20,
-                            color: AppColors.primary,
+                          child: Column(
+                            children: [
+                              Text(
+                                item['day']!,
+                                style: GoogleFonts.inter(
+                                  fontSize: 11,
+                                  fontWeight: isSelected
+                                      ? FontWeight.w600
+                                      : FontWeight.w500,
+                                  color: isSelected
+                                      ? AppColors.primaryFixed
+                                      : AppColors.outline,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                item['date']!,
+                                style: GoogleFonts.inter(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: isSelected
+                                      ? Colors.white
+                                      : AppColors.onSurface,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        const SizedBox(width: 12),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                      ),
+                    );
+                  }),
+                ),
+
+                const SizedBox(height: 16),
+                const Divider(color: AppColors.surfaceContainerHigh, height: 1),
+                const SizedBox(height: 16),
+
+                // Timeline Schedule Items
+                // Event 1: Presensi Masuk
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 72,
+                      child: Text(
+                        '07:31 WIB',
+                        style: GoogleFonts.inter(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.onSurfaceVariant,
+                          fontFeatures: const [FontFeature.tabularFigures()],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: AppColors.surfaceContainerLow,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: AppColors.outlineVariant
+                                .withValues(alpha: 0.2),
+                          ),
+                        ),
+                        child: Stack(
                           children: [
-                            Text(
-                              'Presensi Masuk (Tepat Waktu)',
-                              style: GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.onSurface,
+                            Positioned(
+                              left: 0,
+                              top: 0,
+                              bottom: 0,
+                              child: Container(
+                                width: 4,
+                                decoration: BoxDecoration(
+                                  color: AppColors.primary,
+                                  borderRadius: BorderRadius.circular(2),
+                                ),
                               ),
                             ),
-                            Text(
-                              'Hari ini • 07:31:42 WIB',
-                              style: GoogleFonts.inter(
-                                fontSize: 11,
-                                color: AppColors.outline,
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Presensi Masuk (Shift Pagi)',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold,
+                                            color: AppColors.onSurface,
+                                          ),
+                                        ),
+                                        Text(
+                                          '07:31 WIB • Tepat Waktu (Gedung A)',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 11,
+                                            color: AppColors.outline,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 3,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.secondaryContainer,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Text(
+                                      'Sukses',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColors.onSecondaryContainer,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: AppColors.secondaryContainer,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        'Sukses',
-                        style: GoogleFonts.inter(
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.onSecondaryContainer,
                         ),
                       ),
                     ),
                   ],
                 ),
 
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 12.0),
-                  child: Divider(
-                    color: AppColors.surfaceContainerHigh,
-                    height: 1,
-                  ),
-                ),
+                const SizedBox(height: 10),
 
-                // Log Entry 2
+                // Event 2: Jadwal Presensi Pulang
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.surfaceContainerHigh,
-                          ),
-                          child: const Icon(
-                            Icons.logout,
-                            size: 20,
-                            color: AppColors.onSurfaceVariant,
+                    SizedBox(
+                      width: 72,
+                      child: Text(
+                        '14:00 WIB',
+                        style: GoogleFonts.inter(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.onSurfaceVariant,
+                          fontFeatures: const [FontFeature.tabularFigures()],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: AppColors.surfaceContainerLow,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: AppColors.outlineVariant
+                                .withValues(alpha: 0.2),
                           ),
                         ),
-                        const SizedBox(width: 12),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Stack(
                           children: [
-                            Text(
-                              'Presensi Pulang',
-                              style: GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.onSurface,
+                            Positioned(
+                              left: 0,
+                              top: 0,
+                              bottom: 0,
+                              child: Container(
+                                width: 4,
+                                decoration: BoxDecoration(
+                                  color: AppColors.secondary,
+                                  borderRadius: BorderRadius.circular(2),
+                                ),
                               ),
                             ),
-                            Text(
-                              'Kemarin, 23 Sep • 16:04:11 WIB',
-                              style: GoogleFonts.inter(
-                                fontSize: 11,
-                                color: AppColors.outline,
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Jadwal Presensi Pulang',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold,
+                                            color: AppColors.onSurface,
+                                          ),
+                                        ),
+                                        Text(
+                                          '14:00 - 15:00 WIB • Poli Terpadu',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 11,
+                                            color: AppColors.outline,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 3,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.surfaceContainerHigh,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Text(
+                                      'Menunggu',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColors.onSurfaceVariant,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: AppColors.surfaceContainerHigh,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        'Selesai',
-                        style: GoogleFonts.inter(
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.onSurfaceVariant,
                         ),
                       ),
                     ),
@@ -786,7 +974,7 @@ class _HomeTabState extends State<HomeTab> {
     );
   }
 
-  Widget _buildMenuItem(
+  Widget _buildCompactMenuItem(
     BuildContext context, {
     required IconData icon,
     required String title,
@@ -798,7 +986,7 @@ class _HomeTabState extends State<HomeTab> {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: AppColors.outlineVariant.withValues(alpha: 0.3),
         ),
@@ -807,53 +995,52 @@ class _HomeTabState extends State<HomeTab> {
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(12),
           child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            padding: const EdgeInsets.all(10),
+            child: Row(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 36,
-                      height: 36,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: bgColor,
-                      ),
-                      child: Icon(icon, size: 20, color: iconColor),
-                    ),
-                    const Icon(
-                      Icons.arrow_forward,
-                      size: 16,
-                      color: AppColors.outlineVariant,
-                    ),
-                  ],
+                Container(
+                  width: 38,
+                  height: 38,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: bgColor,
+                  ),
+                  child: Icon(icon, size: 20, color: iconColor),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: GoogleFonts.inter(
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.onSurface,
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.inter(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.onSurface,
+                        ),
                       ),
-                    ),
-                    Text(
-                      subtitle,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.inter(
-                        fontSize: 10,
-                        color: AppColors.onSurfaceVariant,
+                      Text(
+                        subtitle,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.inter(
+                          fontSize: 10,
+                          color: AppColors.onSurfaceVariant,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                ),
+                const Icon(
+                  Icons.chevron_right,
+                  size: 18,
+                  color: AppColors.outlineVariant,
                 ),
               ],
             ),

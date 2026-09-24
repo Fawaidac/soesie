@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import '../constants/app_colors.dart';
 
 class QrCodeModal extends StatelessWidget {
-  const QrCodeModal({super.key});
+  final String userName;
+  final String nip;
 
-  static void show(BuildContext context) {
+  const QrCodeModal({
+    super.key,
+    this.userName = 'Achmad Fawaid, S.Kom.',
+    this.nip = '350921250430001',
+  });
+
+  static void show(
+    BuildContext context, {
+    String userName = 'Achmad Fawaid, S.Kom.',
+    String nip = '350921250430001',
+  }) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (context) => const QrCodeModal(),
+      builder: (context) => QrCodeModal(
+        userName: userName,
+        nip: nip,
+      ),
     );
   }
 
@@ -81,7 +96,7 @@ class QrCodeModal extends StatelessWidget {
             ),
             child: Column(
               children: [
-                // Mock QR Code Graphic
+                // Scannable Real QR Code Widget
                 Container(
                   width: 200,
                   height: 200,
@@ -93,76 +108,41 @@ class QrCodeModal extends StatelessWidget {
                       width: 2,
                     ),
                   ),
-                  padding: const EdgeInsets.all(16),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      // Grid pattern representing QR code
-                      GridView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 6,
-                              crossAxisSpacing: 6,
-                              mainAxisSpacing: 6,
-                            ),
-                        itemCount: 36,
-                        itemBuilder: (context, index) {
-                          final isCorner =
-                              index == 0 ||
-                              index == 5 ||
-                              index == 30 ||
-                              index % 7 == 0 ||
-                              index % 5 == 0;
-                          return Container(
-                            decoration: BoxDecoration(
-                              color: isCorner
-                                  ? AppColors.primary
-                                  : (index % 3 == 0
-                                        ? AppColors.secondary
-                                        : AppColors.primaryContainer.withValues(
-                                            alpha: 0.3,
-                                          )),
-                              borderRadius: BorderRadius.circular(3),
-                            ),
-                          );
-                        },
+                  padding: const EdgeInsets.all(10),
+                  child: Center(
+                    child: QrImageView(
+                      data: nip,
+                      version: QrVersions.auto,
+                      size: 180.0,
+                      eyeStyle: const QrEyeStyle(
+                        eyeShape: QrEyeShape.square,
+                        color: AppColors.primary,
                       ),
-                      // Center hospital logo badge overlay
-                      Container(
-                        width: 36,
-                        height: 36,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white,
-                          border: Border.all(
-                            color: AppColors.primary,
-                            width: 2,
-                          ),
-                        ),
-                        child: ClipOval(
-                          child: Image.asset(
-                            'images/logo_round.png',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                      dataModuleStyle: const QrDataModuleStyle(
+                        dataModuleShape: QrDataModuleShape.square,
+                        color: AppColors.primary,
                       ),
-                    ],
+                      embeddedImage: const AssetImage('images/logo_round.png'),
+                      embeddedImageStyle: const QrEmbeddedImageStyle(
+                        size: Size(34, 34),
+                      ),
+                    ),
                   ),
                 ),
 
                 const SizedBox(height: 16),
 
                 Text(
-                  'Achmad Fawaid, S.Kom.',
+                  userName,
                   style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: AppColors.onSurface,
                   ),
                 ),
+                const SizedBox(height: 2),
                 Text(
-                  'NIP. 350921250430001',
+                  'NIP / NIK. $nip',
                   style: GoogleFonts.inter(
                     fontSize: 12,
                     color: AppColors.onSurfaceVariant,
@@ -186,7 +166,7 @@ class QrCodeModal extends StatelessWidget {
               ),
               const SizedBox(width: 6),
               Text(
-                'Kode QR diperbarui otomatis setiap 30 detik',
+                'Dapat discan langsung oleh Pemindai SIMRS / Gate Pass',
                 style: GoogleFonts.inter(
                   fontSize: 11,
                   color: AppColors.onSurfaceVariant,
